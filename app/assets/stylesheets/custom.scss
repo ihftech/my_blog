@@ -1,0 +1,37 @@
+.navbar{
+    background-color: #7330F9;
+}
+.page-content {
+  padding-top: 55px;
+  min-height: 100vh;
+}
+.banner {
+  background-image: url('assets/banner.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;    
+}
+.banner-title {
+    color: #7330f9;
+    font-size: 150px;
+}
+.banner-text{
+    font-size: 24px;
+    color: #000!important;
+}
+.btn-custom{
+    background-color: #7532F9;
+    color: white;
+}
+.btn-custom:hover {
+    background-color: #854ff2;
+    color: white;
+}
+.footer {
+    background-color: #7330F9;
+    color: white;
+}

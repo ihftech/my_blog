@@ -1,0 +1,25 @@
+<%= render 'shared/errors'%>
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 40vh;">
+    
+<div class="w-50">
+    <%= form_with(model: @article, local: true, data: { turbo: false }) do |form| %>
+        <div class="row mb-3">
+        <%= form.label :Title, class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-10">
+            <%= form.text_field :title, class: "form-control", placeholder: "Enter article title" %>
+        </div>
+        </div>
+        <div class="row mb-3">
+        <%= form.label :Description, class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-10">
+            <%= form.text_area :description, class: "form-control", placeholder: "Enter article description", rows: 6 %>
+        </div>
+        </div>
+        <div class="text-center">
+            <%= form.submit @article.new_record? ? "Create" : "Update", class: "btn btn-custom btn-lg" %>
+        </div>
+    <% end %>
+  </div>
+
+</div>
