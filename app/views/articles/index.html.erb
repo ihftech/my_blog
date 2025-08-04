@@ -1,23 +1,12 @@
-<div class="container my-5">
-    <h2 class="text-center">Showing all articles</h2>
+<div class="container my-5 text-center">
+    <h2>Listing all articles</h2>
 </div>
-<% @articles.each do |article| %>
-<div class="container d-flex justify-content-center align-items-center mb-5">
-    <div class="card text-center w-50">
-        <div class="card-header">
-            Created by
-        </div>
-        <div class="card-body">
-            <h5 class="card-title"><%= article.title %></h5>
-            <p class="card-text"><%= truncate(article.description, length: 40) %></p>
-            <%= link_to "View", article_path(article), class: "btn btn-success" %>
-            <%= link_to "Edit", edit_article_path(article), class: "btn btn-primary" %>
-            <%= link_to "Delete", article_path(article), data: {turbo_method: :delete}, class: "btn btn-danger" %>
-        </div>
-        <div class="card-footer text-muted">
-            Created: <%= article.created_at.strftime("%B %d, %Y %I:%M %p") %> |
-            Updated: <%= article.updated_at.strftime("%B %d, %Y %I:%M %p") %>
-        </div>
-    </div>
+<div class="flickr_pagination mb-3">
+    <%= will_paginate @articles, :container => false %>
 </div>
-<% end %>
+
+<%= render "article" %>
+
+<div class="flickr_pagination mb-3">
+    <%= will_paginate @articles, :container => false %>
+</div>

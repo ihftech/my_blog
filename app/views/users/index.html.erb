@@ -1,0 +1,42 @@
+<div class="container my-5">
+    <h2 class="text-center">Listing all Bloggers</h2>
+</div>
+<div class="flickr_pagination mb-3">
+    <%= will_paginate @users, :container => false %>
+</div>
+<% if @users.any? %>
+    <% @users.each do |user| %>
+    <div class="container d-flex justify-content-center align-items-center mb-5">
+        <div class="card text-center w-50">
+            <div class="card-header">
+                <%= link_to user.name, user_path(user)%>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= link_to user_path(user) do %>
+                        <img src="<%= gravatar_for(user, size: 100) %>" class="img-thumbnail rounded-circle border" alt="User Avatar">
+                    <% end %>
+                </h5>
+                <p class="card-text"><%= pluralize(user.articles.count, "article") %></p>
+                <%= link_to "View", user_path(user), class: "btn btn-success" %>
+                <% if logged_in? && (user == current_user || current_user.admin?) %>
+                <%= link_to "Edit", edit_user_path(user), class: "btn btn-primary" %>
+                <%= link_to "Delete", user_path(user), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+                <% end %>
+            </div>
+            <div class="card-footer text-muted">
+                Joined: <%= user.created_at.strftime("%B %d, %Y %I:%M %p") %>
+            </div>
+        </div>
+    </div>
+    <% end %>
+<% else %>
+    <div class="container text-center my-5">
+        <h3>No users found</h3>
+        <p><%= link_to "Sign up", signup_path %></p>
+    </div>
+<% end %>
+
+<div class="flickr_pagination mb-3">
+    <%= will_paginate @users, :container => false %>
+</div>

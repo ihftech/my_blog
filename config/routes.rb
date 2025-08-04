@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root "pages#home"
-  resources :articles, only: [:new, :create, :show, :edit, :update, :destroy, :index]
- 
+  resources :articles
+  get "signup", to: "users#new"
+  resources :users, except: [ :new ]
+  get "login", to: "sessions#new"
+  post "login", to: "sessions#create"
+  delete "logout", to: "sessions#destroy"
+  resources :categories, except: [ :destroy ]
 end
