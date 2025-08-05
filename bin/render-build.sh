@@ -9,5 +9,9 @@ bundle install
 bundle exec rails assets:precompile
 bundle exec rails assets:clean
 
+# Wait for database to be ready
+echo "Waiting for database to be ready..."
+sleep 10
+
 # Run migrations
 bundle exec rails db:migrate
