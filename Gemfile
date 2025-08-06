@@ -52,6 +52,8 @@ group :development, :test do
   # Use the SQLite3 database [
   gem "sqlite3", ">= 2.1"
 
+  gem "pg"
+
 end
 
 group :development do
