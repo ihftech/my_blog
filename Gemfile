@@ -66,5 +66,5 @@ group :test do
 end
 
 group :production do
-  gem "pg" # <- এই লাইনটি যোগ করুন
+  gem "pg"
 end
