@@ -33,7 +33,7 @@ gem "solid_cable"
 gem "bootsnap", require: false
 
 #bootstrap
-gem "bootstrap", "~> 5.2.3"
+gem "bootstrap", "~> 5.3.5"
 gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
